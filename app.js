@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 
 // add
 var testRouter = require('./routes/test');
+var crudTest = require('./routes/api/crudTest');
 
 var app = express();
 
@@ -28,7 +29,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // add
-app.use('/test', testRouter)
+app.use('/test', testRouter);
+app.use('/crud', crudTest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

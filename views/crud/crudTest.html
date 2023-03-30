@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Crud Test</title>
+</head>
+<body>
+    <h1 id="resText"></h1>
+
+    <input id="in1" type="text"/>
+    <button onclick="postReq()">요청 보내기 버튼</button>
+    <script>
+        function postReq() {
+            const userId = document.getElementById("in1").value
+
+            fetch(`http://localhost:3000/crud/get/${userId}`) // 따옴표 '' 가 아니라  ->>> ~ 표시 shift 안누른거.
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("send Data = " + data);
+                    document.getElementById("resText").innerHTML = data.userId;
+                })
+        }
+    </script>
+</body>
+</html>
